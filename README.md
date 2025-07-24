@@ -9,7 +9,7 @@ A minimalistic template for kickstarting React projects with Vite and TypeScript
 - **React** - A JavaScript library for building user interfaces.
 - **Vite** - A fast, opinionated frontend build tool.
 - **TypeScript** - A typed superset of JavaScript that compiles to plain JavaScript.
-- **Tailwind CSS** - A utility-first CSS framework.
+- **Tailwind CSS** - A utility-first CSS framewghvork.
 - **Tailwind Prettier Plugin** - A Prettier plugin for formatting Tailwind CSS classes.
 - **ESLint** - A pluggable linting utility for JavaScript and TypeScript.
 - **PostCSS** - A tool for transforming CSS with JavaScript.
