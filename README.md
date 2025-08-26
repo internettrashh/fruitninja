@@ -15,7 +15,7 @@ A minimalistic template for kickstarting React projects with Vite and TypeScript
 - **PostCSS** - A tool for transforming CSS with JavaScript.
 - **Autoprefixer** - A PostCSS plugin to parse CSS and add vendor prefixes.
 
-## ⚙️ Prerequisites
+## ⚙️ Prerequisitescdscssdc
 
 Make sure you have the following installed on your development machine:
 
