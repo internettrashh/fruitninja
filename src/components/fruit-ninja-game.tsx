@@ -1,7 +1,10 @@
 import type React from "react"
 import { useState, useRef, useEffect } from "react"
-import { ConnectButton, useConnection } from "@arweave-wallet-kit/react";
 import Leaderboard from './leaderboard'
+import ConnectButton  from "./Connectbutton";
+import { ethers } from "ethers";
+import { createData, InjectedEthereumSigner } from "@dha-team/arbundles/web";
+import { useWallet } from "./walletcontext";
 
 const GAME_CONFIG = {
   FRUIT_SIZE: 40,
@@ -22,7 +25,7 @@ const fruitTypes = [
 export default function FruitNinjaGame() {
   const [gameState, setGameState] = useState("start")
   const [score, setScore] = useState(0)
-  const [timeLeft, setTimeLeft] = useState(60)
+  const [timeLeft, setTimeLeft] = useState(10)
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const [fruits, setFruits] = useState<Fruit[]>([])
   const [slashHistory, setSlashHistory] = useState<Point[]>([])
@@ -32,7 +35,8 @@ export default function FruitNinjaGame() {
   const [mouseVelocity, setMouseVelocity] = useState<number>(0);
   const [lastMousePosition, setLastMousePosition] = useState<Point | null>(null);
   const [lastMouseTime, setLastMouseTime] = useState<number>(0);
-  const { connected, connect } = useConnection()
+  const { connected, address: activeAddress, connect } = useWallet()
+
 
   type Point = { x: number; y: number }
   type Fruit = {

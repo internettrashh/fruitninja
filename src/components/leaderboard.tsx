@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
-import { useConnection } from '@arweave-wallet-kit/react'
+import { useWallet } from './walletcontext'
+
 import { getFruitNinjaLeaderboard, submitFruitNinjaScore } from './aointeg'
-import { useActiveAddress } from '@arweave-wallet-kit/react'
+
 
 // Update the type to match your actual data structure
 type LeaderboardEntry = {
@@ -14,8 +15,8 @@ export default function Leaderboard({ currentScore }: { currentScore: number }) 
   const [scores, setScores] = useState<LeaderboardEntry[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
-  const { connected } = useConnection()
-  const activeAddress = useActiveAddress()
+  const { connected, address: activeAddress } = useWallet()
+
 
   useEffect(() => {
     fetchLeaderboard()
